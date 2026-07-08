@@ -72,6 +72,13 @@ test('GET /lang ignores non-local redirect (open redirect guard)', async () => {
   assert.strictEqual(res.headers.location, '/');
 });
 
+test('GET /lang ignores protocol-relative redirect (open redirect guard)', async () => {
+  const res1 = await request('/lang/en?redirect=//evil.example.com');
+  assert.strictEqual(res1.headers.location, '/');
+  const res2 = await request('/lang/en?redirect=/%5Cevil.example.com');
+  assert.strictEqual(res2.headers.location, '/');
+});
+
 test('POST /api/evaluate rejects empty prompt', async () => {
   const res = await request('/api/evaluate', {
     method: 'POST',

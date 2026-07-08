@@ -47,6 +47,15 @@ app.use((req, res, next) => {
   next();
 });
 
+// リダイレクト先はローカルの絶対パスのみ許可（オープンリダイレクト対策）。
+// 先頭が単一の "/" で、"//" や "/\" のような protocol-relative URL は拒否する。
+function safeRedirectPath(value) {
+  if (typeof value !== 'string') return '/';
+  if (value[0] !== '/') return '/';
+  if (value.length > 1 && (value[1] === '/' || value[1] === '\\')) return '/';
+  return value;
+}
+
 // 言語切替: クッキーに保存して元のページへ戻る
 app.get('/lang/:code', (req, res) => {
   const code = i18n.normalizeLocale(req.params.code);
@@ -55,9 +64,7 @@ app.get('/lang/:code', (req, res) => {
     httpOnly: false,
     sameSite: 'lax'
   });
-  const back = typeof req.query.redirect === 'string' && req.query.redirect.startsWith('/')
-    ? req.query.redirect
-    : '/';
+  const back = safeRedirectPath(req.query.redirect);
   res.redirect(back);
 });
 
