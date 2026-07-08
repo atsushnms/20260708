@@ -1,0 +1,27 @@
+{
+  "name": "prompt-quest",
+  "version": "0.1.0",
+  "description": "PromptQuest - ゲーム形式で生成AIのプロンプトスキルを学べる学習プラットフォームのプロトタイプ",
+  "main": "server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "test": "node --test"
+  },
+  "keywords": [
+    "prompt",
+    "learning",
+    "github-models",
+    "i18n",
+    "express"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "openai": "^4.77.0"
+  }
+}

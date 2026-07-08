@@ -1,0 +1,89 @@
+{
+  "meta": {
+    "code": "ja",
+    "name": "日本語",
+    "dir": "ltr"
+  },
+  "app": {
+    "name": "PromptQuest",
+    "tagline": "遊んで学ぶ、プロンプトの冒険"
+  },
+  "nav": {
+    "home": "ホーム",
+    "quests": "クエスト",
+    "ranking": "ランキング",
+    "mypage": "マイページ"
+  },
+  "common": {
+    "language": "言語",
+    "start": "はじめる",
+    "back": "戻る",
+    "loading": "AIが評価中です…",
+    "level": "レベル",
+    "xp": "経験値",
+    "score": "スコア",
+    "badges": "バッジ",
+    "difficulty": "難易度",
+    "category": "カテゴリ",
+    "beginner": "初級",
+    "intermediate": "中級",
+    "advanced": "上級"
+  },
+  "home": {
+    "hero_title": "プロンプトの達人になろう",
+    "hero_subtitle": "ゲーム感覚のクエストに挑戦しながら、生成AIへの指示スキルを段階的にレベルアップ。AIが即座にあなたのプロンプトを採点します。",
+    "cta": "クエストを始める",
+    "features_title": "特徴",
+    "feature_quest_title": "クエスト形式の課題",
+    "feature_quest_desc": "初級から上級まで、実務に近いシナリオでプロンプト作成を練習できます。",
+    "feature_feedback_title": "AIによる即時フィードバック",
+    "feature_feedback_desc": "入力したプロンプトをAIがすぐに採点し、良い点と改善点を提示します。",
+    "feature_reward_title": "報酬とレベルアップ",
+    "feature_reward_desc": "経験値やバッジを獲得し、成長を可視化。継続的な学習を後押しします。",
+    "progress_title": "あなたの進捗"
+  },
+  "quests": {
+    "title": "クエスト一覧",
+    "subtitle": "挑戦するクエストを選びましょう。",
+    "start_quest": "挑戦する",
+    "cleared": "クリア済み"
+  },
+  "quest": {
+    "objective": "ミッション",
+    "scenario": "シナリオ",
+    "hint": "ヒント",
+    "your_prompt": "あなたのプロンプト",
+    "prompt_placeholder": "ここに生成AIへの指示（プロンプト）を書いてください…",
+    "submit": "プロンプトを提出して採点",
+    "result": "採点結果",
+    "score_label": "スコア",
+    "feedback": "フィードバック",
+    "strengths": "良かった点",
+    "improvements": "改善点",
+    "model_answer_example": "AIの回答例",
+    "try_again": "もう一度挑戦",
+    "next_quest": "次のクエストへ",
+    "empty_prompt": "プロンプトを入力してください。",
+    "error": "採点中にエラーが発生しました。時間をおいて再度お試しください。",
+    "xp_earned": "獲得経験値"
+  },
+  "ranking": {
+    "title": "ランキング",
+    "subtitle": "プロトタイプ版のサンプルランキングです。",
+    "rank": "順位",
+    "player": "プレイヤー",
+    "you": "あなた"
+  },
+  "mypage": {
+    "title": "マイページ",
+    "subtitle": "あなたの学習の記録です（この端末に保存されます）。",
+    "no_badges": "まだバッジがありません。クエストをクリアして獲得しましょう！",
+    "cleared_quests": "クリアしたクエスト",
+    "reset": "進捗をリセット",
+    "reset_confirm": "本当に進捗をリセットしますか？"
+  },
+  "footer": {
+    "note": "これはプロトタイプです。ユーザー認証はありません。",
+    "powered_by": "Powered by GitHub Models"
+  }
+}

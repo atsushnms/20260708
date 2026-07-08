@@ -1,0 +1,80 @@
+<%- include('partials/head') %>
+<%- include('partials/header') %>
+
+<main>
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-copy">
+        <span class="hero-badge">✨ <%= t('app.tagline') %></span>
+        <h1 class="hero-title"><%= t('home.hero_title') %></h1>
+        <p class="hero-subtitle"><%= t('home.hero_subtitle') %></p>
+        <div class="hero-actions">
+          <a href="/quests" class="btn btn-primary btn-lg"><%= t('home.cta') %></a>
+          <a href="/ranking" class="btn btn-ghost btn-lg"><%= t('nav.ranking') %></a>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="floating-card card-1">🧩</div>
+        <div class="floating-card card-2">🧠</div>
+        <div class="floating-card card-3">🏆</div>
+        <div class="hero-orb"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container section">
+    <div class="stats-strip" data-progress-summary>
+      <div class="stat">
+        <span class="stat-value" data-stat="level">1</span>
+        <span class="stat-label"><%= t('common.level') %></span>
+      </div>
+      <div class="stat">
+        <span class="stat-value" data-stat="xp">0</span>
+        <span class="stat-label"><%= t('common.xp') %></span>
+      </div>
+      <div class="stat">
+        <span class="stat-value" data-stat="cleared">0</span>
+        <span class="stat-label"><%= t('quests.cleared') %></span>
+      </div>
+      <div class="stat">
+        <span class="stat-value" data-stat="badges">0</span>
+        <span class="stat-label"><%= t('common.badges') %></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="container section">
+    <h2 class="section-title"><%= t('home.features_title') %></h2>
+    <div class="feature-grid">
+      <article class="feature-card">
+        <div class="feature-icon">🎯</div>
+        <h3><%= t('home.feature_quest_title') %></h3>
+        <p><%= t('home.feature_quest_desc') %></p>
+      </article>
+      <article class="feature-card">
+        <div class="feature-icon">⚡</div>
+        <h3><%= t('home.feature_feedback_title') %></h3>
+        <p><%= t('home.feature_feedback_desc') %></p>
+      </article>
+      <article class="feature-card">
+        <div class="feature-icon">🏅</div>
+        <h3><%= t('home.feature_reward_title') %></h3>
+        <p><%= t('home.feature_reward_desc') %></p>
+      </article>
+    </div>
+  </section>
+
+  <section class="container section">
+    <div class="section-head">
+      <h2 class="section-title"><%= t('quests.title') %></h2>
+      <a href="/quests" class="link-more"><%= t('quests.title') %> →</a>
+    </div>
+    <div class="quest-grid">
+      <% quests.slice(0, 3).forEach(function(q){ %>
+        <%- include('partials/quest-card', { q: q }) %>
+      <% }); %>
+    </div>
+  </section>
+</main>
+
+<%- include('partials/footer') %>

@@ -1,0 +1,30 @@
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="brand" aria-label="<%= t('app.name') %>">
+      <span class="brand-logo" aria-hidden="true">🚀</span>
+      <span class="brand-text">
+        <span class="brand-name"><%= t('app.name') %></span>
+        <span class="brand-tagline"><%= t('app.tagline') %></span>
+      </span>
+    </a>
+
+    <button class="nav-toggle" aria-label="menu" aria-expanded="false" data-nav-toggle>
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="site-nav" data-nav>
+      <a href="/" class="<%= currentPath === '/' ? 'active' : '' %>"><%= t('nav.home') %></a>
+      <a href="/quests" class="<%= currentPath.startsWith('/quests') ? 'active' : '' %>"><%= t('nav.quests') %></a>
+      <a href="/ranking" class="<%= currentPath === '/ranking' ? 'active' : '' %>"><%= t('nav.ranking') %></a>
+      <a href="/mypage" class="<%= currentPath === '/mypage' ? 'active' : '' %>"><%= t('nav.mypage') %></a>
+
+      <div class="lang-switch" role="group" aria-label="<%= t('common.language') %>">
+        <% supportedLocales.forEach(function(l){ %>
+          <a class="lang-btn <%= l.code === locale ? 'active' : '' %>"
+             href="/lang/<%= l.code %>?redirect=<%= encodeURIComponent(currentPath) %>"
+             lang="<%= l.code %>"><%= l.code.toUpperCase() %></a>
+        <% }); %>
+      </div>
+    </nav>
+  </div>
+</header>

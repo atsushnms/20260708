@@ -1,0 +1,89 @@
+{
+  "meta": {
+    "code": "en",
+    "name": "English",
+    "dir": "ltr"
+  },
+  "app": {
+    "name": "PromptQuest",
+    "tagline": "Play, learn, and master prompting"
+  },
+  "nav": {
+    "home": "Home",
+    "quests": "Quests",
+    "ranking": "Ranking",
+    "mypage": "My Page"
+  },
+  "common": {
+    "language": "Language",
+    "start": "Start",
+    "back": "Back",
+    "loading": "The AI is evaluating…",
+    "level": "Level",
+    "xp": "XP",
+    "score": "Score",
+    "badges": "Badges",
+    "difficulty": "Difficulty",
+    "category": "Category",
+    "beginner": "Beginner",
+    "intermediate": "Intermediate",
+    "advanced": "Advanced"
+  },
+  "home": {
+    "hero_title": "Become a Prompt Master",
+    "hero_subtitle": "Take on game-like quests and level up your generative-AI prompting skills step by step. The AI scores your prompt instantly.",
+    "cta": "Start a quest",
+    "features_title": "Features",
+    "feature_quest_title": "Quest-based challenges",
+    "feature_quest_desc": "Practice prompt writing through realistic scenarios, from beginner to advanced.",
+    "feature_feedback_title": "Instant AI feedback",
+    "feature_feedback_desc": "The AI scores your prompt right away and shows strengths and areas to improve.",
+    "feature_reward_title": "Rewards & leveling up",
+    "feature_reward_desc": "Earn XP and badges to visualize your growth and stay motivated.",
+    "progress_title": "Your progress"
+  },
+  "quests": {
+    "title": "Quests",
+    "subtitle": "Choose a quest to take on.",
+    "start_quest": "Take on",
+    "cleared": "Cleared"
+  },
+  "quest": {
+    "objective": "Mission",
+    "scenario": "Scenario",
+    "hint": "Hint",
+    "your_prompt": "Your prompt",
+    "prompt_placeholder": "Write your instruction (prompt) for the generative AI here…",
+    "submit": "Submit prompt for scoring",
+    "result": "Result",
+    "score_label": "Score",
+    "feedback": "Feedback",
+    "strengths": "Strengths",
+    "improvements": "Improvements",
+    "model_answer_example": "Example AI answer",
+    "try_again": "Try again",
+    "next_quest": "Next quest",
+    "empty_prompt": "Please enter a prompt.",
+    "error": "An error occurred during scoring. Please try again later.",
+    "xp_earned": "XP earned"
+  },
+  "ranking": {
+    "title": "Ranking",
+    "subtitle": "A sample ranking for the prototype.",
+    "rank": "Rank",
+    "player": "Player",
+    "you": "You"
+  },
+  "mypage": {
+    "title": "My Page",
+    "subtitle": "Your learning record (saved on this device).",
+    "no_badges": "No badges yet. Clear quests to earn them!",
+    "cleared_quests": "Cleared quests",
+    "reset": "Reset progress",
+    "reset_confirm": "Are you sure you want to reset your progress?"
+  },
+  "footer": {
+    "note": "This is a prototype. There is no user authentication.",
+    "powered_by": "Powered by GitHub Models"
+  }
+}

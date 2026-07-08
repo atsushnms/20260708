@@ -1,0 +1,19 @@
+<%- include('partials/head') %>
+<%- include('partials/header') %>
+
+<main>
+  <section class="container section page-head">
+    <h1 class="page-title"><%= t('quests.title') %></h1>
+    <p class="page-subtitle"><%= t('quests.subtitle') %></p>
+  </section>
+
+  <section class="container section">
+    <div class="quest-grid">
+      <% quests.forEach(function(q){ %>
+        <%- include('partials/quest-card', { q: q }) %>
+      <% }); %>
+    </div>
+  </section>
+</main>
+
+<%- include('partials/footer') %>
