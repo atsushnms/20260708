@@ -48,12 +48,17 @@ app.use((req, res, next) => {
 });
 
 // リダイレクト先はローカルの絶対パスのみ許可（オープンリダイレクト対策）。
-// 先頭が単一の "/" で、"//" や "/\" のような protocol-relative URL は拒否する。
+// URL を解析してホスト部を切り離し、パス（+クエリ）のみを使う。
+// "//evil.com" や "https://evil.com" などの外部ホストは拒否する。
 function safeRedirectPath(value) {
-  if (typeof value !== 'string') return '/';
-  if (value[0] !== '/') return '/';
-  if (value.length > 1 && (value[1] === '/' || value[1] === '\\')) return '/';
-  return value;
+  if (typeof value !== 'string' || !value.startsWith('/')) return '/';
+  try {
+    const parsed = new URL(value, 'http://localhost');
+    if (parsed.origin !== 'http://localhost') return '/';
+    return parsed.pathname + parsed.search;
+  } catch (_) {
+    return '/';
+  }
 }
 
 // 言語切替: クッキーに保存して元のページへ戻る
