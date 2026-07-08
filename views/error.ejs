@@ -1,0 +1,13 @@
+<%- include('partials/head') %>
+<%- include('partials/header') %>
+
+<main>
+  <section class="container section error-page">
+    <div class="error-emoji">🧭</div>
+    <h1 class="page-title"><%= title %></h1>
+    <p class="page-subtitle"><%= message %></p>
+    <a href="/" class="btn btn-primary"><%= t('nav.home') %></a>
+  </section>
+</main>
+
+<%- include('partials/footer') %>

@@ -1,0 +1,37 @@
+<%- include('partials/head') %>
+<%- include('partials/header') %>
+
+<main>
+  <section class="container section page-head">
+    <h1 class="page-title"><%= t('ranking.title') %></h1>
+    <p class="page-subtitle"><%= t('ranking.subtitle') %></p>
+  </section>
+
+  <section class="container section">
+    <div class="ranking-list">
+      <% players.forEach(function(p, i){ %>
+        <div class="ranking-row <%= i < 3 ? 'top-' + (i+1) : '' %>">
+          <span class="rank-num"><%= i + 1 %></span>
+          <span class="rank-badge" aria-hidden="true"><%= p.badge %></span>
+          <span class="rank-name"><%= p.name %></span>
+          <span class="rank-meta">
+            <span class="chip"><%= t('common.level') %> <%= p.level %></span>
+            <span class="chip chip-xp"><%= p.xp.toLocaleString() %> <%= t('common.xp') %></span>
+          </span>
+        </div>
+      <% }); %>
+
+      <div class="ranking-row you-row" data-you-row hidden>
+        <span class="rank-num">–</span>
+        <span class="rank-badge" aria-hidden="true">🙂</span>
+        <span class="rank-name"><%= t('ranking.you') %></span>
+        <span class="rank-meta">
+          <span class="chip"><%= t('common.level') %> <span data-stat="level">1</span></span>
+          <span class="chip chip-xp"><span data-stat="xp">0</span> <%= t('common.xp') %></span>
+        </span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<%- include('partials/footer') %>

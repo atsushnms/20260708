@@ -1,0 +1,119 @@
+<%- include('partials/head') %>
+<%- include('partials/header') %>
+
+<main>
+  <section class="container section">
+    <a href="/quests" class="link-back">← <%= t('common.back') %></a>
+
+    <div class="quest-detail" data-quest
+         data-quest-id="<%= quest.id %>"
+         data-quest-xp="<%= quest.xp %>"
+         data-quest-badge="<%= quest.badge %>"
+         data-next-quest="<%= nextQuestId || '' %>"
+         data-locale="<%= locale %>">
+
+      <div class="quest-detail-head">
+        <span class="quest-emoji quest-emoji-lg" aria-hidden="true"><%= quest.badge %></span>
+        <div>
+          <div class="quest-tags">
+            <span class="badge badge-<%= quest.difficulty %>"><%= t('common.' + quest.difficulty) %></span>
+            <span class="quest-category"><%= quest.category[locale] %></span>
+            <span class="quest-xp">+<%= quest.xp %> <%= t('common.xp') %></span>
+          </div>
+          <h1 class="page-title"><%= quest.title[locale] %></h1>
+        </div>
+      </div>
+
+      <div class="quest-blocks">
+        <div class="info-block">
+          <h2 class="info-title">🎯 <%= t('quest.objective') %></h2>
+          <p><%= quest.objective[locale] %></p>
+        </div>
+        <div class="info-block">
+          <h2 class="info-title">📖 <%= t('quest.scenario') %></h2>
+          <p><%= quest.scenario[locale] %></p>
+        </div>
+        <details class="info-block hint-block">
+          <summary class="info-title">💡 <%= t('quest.hint') %></summary>
+          <p><%= quest.hint[locale] %></p>
+        </details>
+      </div>
+
+      <% if (!llmConfigured) { %>
+        <div class="alert alert-warn">
+          ⚠️ <code>GITHUB_TOKEN</code>
+          <%= locale === 'en'
+            ? ' is not set. Set it in .env to enable AI scoring.'
+            : ' が未設定です。AI採点を有効にするには .env に設定してください。' %>
+        </div>
+      <% } %>
+
+      <form class="prompt-form" data-eval-form>
+        <label class="field-label" for="prompt-input"><%= t('quest.your_prompt') %></label>
+        <textarea id="prompt-input" name="prompt" class="prompt-input" rows="7"
+          placeholder="<%= t('quest.prompt_placeholder') %>"></textarea>
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary btn-lg" data-submit-btn>
+            <span data-submit-label><%= t('quest.submit') %></span>
+            <span class="spinner" data-spinner hidden></span>
+          </button>
+        </div>
+      </form>
+
+      <div class="eval-result" data-result hidden>
+        <div class="result-header">
+          <h2 class="info-title"><%= t('quest.result') %></h2>
+          <div class="score-ring" data-score-ring>
+            <span class="score-value" data-score>0</span>
+            <span class="score-max">/100</span>
+          </div>
+        </div>
+
+        <div class="xp-earned" data-xp-earned hidden>
+          🎉 <%= t('quest.xp_earned') %>: <strong><span data-xp-value>0</span></strong>
+        </div>
+
+        <div class="result-block">
+          <h3 class="result-subtitle"><%= t('quest.feedback') %></h3>
+          <p data-feedback></p>
+        </div>
+
+        <div class="result-cols">
+          <div class="result-block result-good">
+            <h3 class="result-subtitle">✅ <%= t('quest.strengths') %></h3>
+            <ul data-strengths></ul>
+          </div>
+          <div class="result-block result-improve">
+            <h3 class="result-subtitle">🔧 <%= t('quest.improvements') %></h3>
+            <ul data-improvements></ul>
+          </div>
+        </div>
+
+        <details class="result-block" data-model-answer-block hidden>
+          <summary class="result-subtitle">🤖 <%= t('quest.model_answer_example') %></summary>
+          <p data-model-answer></p>
+        </details>
+
+        <div class="result-actions">
+          <button type="button" class="btn btn-ghost" data-retry><%= t('quest.try_again') %></button>
+          <% if (nextQuestId) { %>
+            <a href="/quests/<%= nextQuestId %>" class="btn btn-primary"><%= t('quest.next_quest') %></a>
+          <% } %>
+        </div>
+      </div>
+
+      <div class="alert alert-error" data-error hidden></div>
+    </div>
+  </section>
+</main>
+
+<script id="quest-i18n" type="application/json">
+  <%- JSON.stringify({
+    empty_prompt: t('quest.empty_prompt'),
+    error: t('quest.error'),
+    loading: t('common.loading'),
+    submit: t('quest.submit')
+  }) %>
+</script>
+
+<%- include('partials/footer') %>

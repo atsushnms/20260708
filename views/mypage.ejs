@@ -1,0 +1,56 @@
+<%- include('partials/head') %>
+<%- include('partials/header') %>
+
+<main>
+  <section class="container section page-head">
+    <h1 class="page-title"><%= t('mypage.title') %></h1>
+    <p class="page-subtitle"><%= t('mypage.subtitle') %></p>
+  </section>
+
+  <section class="container section">
+    <div class="stats-strip stats-strip-lg" data-progress-summary>
+      <div class="stat">
+        <span class="stat-value" data-stat="level">1</span>
+        <span class="stat-label"><%= t('common.level') %></span>
+      </div>
+      <div class="stat">
+        <span class="stat-value" data-stat="xp">0</span>
+        <span class="stat-label"><%= t('common.xp') %></span>
+      </div>
+      <div class="stat">
+        <span class="stat-value" data-stat="cleared">0</span>
+        <span class="stat-label"><%= t('quests.cleared') %></span>
+      </div>
+      <div class="stat">
+        <span class="stat-value" data-stat="badges">0</span>
+        <span class="stat-label"><%= t('common.badges') %></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="container section">
+    <h2 class="section-title"><%= t('common.badges') %></h2>
+    <div class="badge-shelf" data-badge-shelf>
+      <p class="muted" data-no-badges><%= t('mypage.no_badges') %></p>
+    </div>
+  </section>
+
+  <section class="container section">
+    <h2 class="section-title"><%= t('mypage.cleared_quests') %></h2>
+    <div class="quest-grid">
+      <% quests.forEach(function(q){ %>
+        <%- include('partials/quest-card', { q: q }) %>
+      <% }); %>
+    </div>
+  </section>
+
+  <section class="container section">
+    <button type="button" class="btn btn-danger" data-reset-progress><%= t('mypage.reset') %></button>
+  </section>
+</main>
+
+<script id="mypage-i18n" type="application/json">
+  <%- JSON.stringify({ reset_confirm: t('mypage.reset_confirm') }) %>
+</script>
+
+<%- include('partials/footer') %>

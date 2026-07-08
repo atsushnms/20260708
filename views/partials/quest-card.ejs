@@ -1,0 +1,14 @@
+<article class="quest-card" data-quest-card data-quest-id="<%= q.id %>">
+  <div class="quest-card-top">
+    <span class="quest-emoji" aria-hidden="true"><%= q.badge %></span>
+    <span class="badge badge-<%= q.difficulty %>"><%= t('common.' + q.difficulty) %></span>
+  </div>
+  <span class="quest-category"><%= q.category[locale] %></span>
+  <h3 class="quest-card-title"><%= q.title[locale] %></h3>
+  <p class="quest-card-desc"><%= q.scenario[locale] %></p>
+  <div class="quest-card-foot">
+    <span class="quest-xp">+<%= q.xp %> <%= t('common.xp') %></span>
+    <span class="quest-cleared-badge" data-cleared-badge hidden>✔ <%= t('quests.cleared') %></span>
+    <a href="/quests/<%= q.id %>" class="btn btn-primary btn-sm"><%= t('quests.start_quest') %></a>
+  </div>
+</article>
